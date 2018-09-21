@@ -1,0 +1,31 @@
+#Jetbrains stuff
+.idea/
+*.iml
+
+
+#Java Stuff
+target/
+
+#Python Stuff
+venv/
+
+
+#Custom
+test_out/
+*.log
+*.jar
+*.exe
+
+
+
+#Other stuff that shouldnt be in VC
+*.mp4
+*.avi
+*.mpg
+*.mpeg
+*.mp3
+*.aac
+*.png
+*.bmp
+*.jpg
+*.jpeg
