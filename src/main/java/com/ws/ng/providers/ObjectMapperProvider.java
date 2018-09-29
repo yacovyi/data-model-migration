@@ -1,6 +1,5 @@
 package com.ws.ng.providers;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -21,9 +20,15 @@ public class ObjectMapperProvider implements ContextResolver<ObjectMapper> {
         return defaultObjectMapper;
     }
 
+    /**
+     * Place to set configurations for the object mapper used to
+     * serialize and deserialize objects received and/or sent via rest
+     * @return com.fasterxml.jackson.databind.ObjectMapper
+     */
     private static ObjectMapper createDefaultMapper() {
         final ObjectMapper result = new ObjectMapper();
         result.configure(SerializationFeature.INDENT_OUTPUT, true);
+
 
         return result;
     }
