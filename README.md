@@ -41,3 +41,11 @@ you do not need to register them manually in Main for them to be recognized
 - Run the docker image locally using the `start_container.sh` script
 ***
 ##### Please do not forget to change all template names in POM and scripts and update this readme according to your microservice
+
+
+
+**Missing from the template:**
+1. Logging
+1. Configuration management
+1. Elastic/Redis clients?
+1. Kafka Producer
