@@ -2,9 +2,7 @@
 <Configuration status="WARN" monitorInterval="30">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout>
-                <pattern>^|%date|%-5level|sagaId:[%X{sagaId}]|%thread|%logger|userName:[%X{userName}]|%n%.-5000msg%n%throwable$%n</pattern>
-            </PatternLayout>
+            <PatternLayout pattern="%highlight{%date %-5level sagaId:[%X{sagaId}] %-10thread %-30logger{1} userName:[%X{userName}]}%n%.-32000msg%n%n"/>
         </Console>
     </Appenders>
     <Loggers>
