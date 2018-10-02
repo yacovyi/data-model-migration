@@ -1,6 +1,5 @@
 package com.ws.ng;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ws.ng.providers.ObjectMapperProvider;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
