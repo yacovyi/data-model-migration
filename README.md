@@ -45,7 +45,10 @@ you do not need to register them manually in Main for them to be recognized
 
 
 **Missing from the template:**
-1. Logging
 1. Configuration management
-1. Elastic/Redis clients?
+1. Elasticsearch Client
+1. Redis Client
 1. Kafka Producer
+1. unit-test example
+1. proper documentation
+1. template variables
