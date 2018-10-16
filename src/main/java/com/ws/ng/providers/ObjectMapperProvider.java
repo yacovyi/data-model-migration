@@ -3,9 +3,11 @@ package com.ws.ng.providers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import javax.inject.Singleton;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 
+@Singleton
 @Provider
 public class ObjectMapperProvider implements ContextResolver<ObjectMapper> {
 

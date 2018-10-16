@@ -1,5 +1,7 @@
 package com.ws.ng;
 
+import com.ws.ng.configuration.ConfigurationProvider;
+import com.ws.ng.configuration.DependencyBinder;
 import com.ws.ng.providers.ObjectMapperProvider;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -10,16 +12,17 @@ import java.net.URI;
 
 public class Main {
     protected static final String BASE_URI = "http://0.0.0.0:8123/";
-
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      */
     protected static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers in com.ws.ng package
-        final ResourceConfig rc = new ResourceConfig().packages("com.ws.ng");
+        final ResourceConfig rc = new ResourceConfig();
 
         rc.register(ObjectMapperProvider.class);
         rc.register(JacksonFeature.class);
+        rc.register(new DependencyBinder());
+        rc.packages(true,"com.ws.ng");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI

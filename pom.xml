@@ -6,7 +6,7 @@
 
     <groupId>com.ws.42</groupId>
     <artifactId>webserver_template</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
 
 
     <properties>
@@ -16,6 +16,7 @@
         <junit.jupiter.version>5.3.1</junit.jupiter.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <log4j2.version>2.11.1</log4j2.version>
+        <cfg4j.version>4.4.1</cfg4j.version>
     </properties>
 
     <distributionManagement>
@@ -90,6 +91,20 @@
             <artifactId>disruptor</artifactId>
             <version>3.4.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.cfg4j</groupId>
+            <artifactId>cfg4j-core</artifactId>
+            <version>${cfg4j.version}</version>
+        </dependency>
+
+
+        <!-- Optional plug-ins -->
+        <!-- Git integration -->
+        <dependency>
+            <groupId>org.cfg4j</groupId>
+            <artifactId>cfg4j-git</artifactId>
+            <version>${cfg4j.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -153,6 +168,12 @@
                 <version>2.22.0</version>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>
