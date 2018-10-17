@@ -1,8 +1,8 @@
 package com.ws.ng.configuration;
 
 
-import com.ws.ng.providers.KafkaProducerCreator;
 import com.ws.ng.StatusService;
+import com.ws.ng.providers.KafkaProducerCreator;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
 import javax.inject.Singleton;

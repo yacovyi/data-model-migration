@@ -29,12 +29,13 @@ public class ConfigurationProvider implements Factory<Config> {
     /**
      * Version in pom, without patch version.
      * 1.2.3 -> 1.2
+     *
      * @return major.minor version of the service
      */
     private String getServiceVersion() {
         String pomVersion = properties.getProperty("version", "");
         int patchVersionStart = pomVersion.lastIndexOf(".");
-        String versionWithoutPatch = pomVersion.substring(0,patchVersionStart);
+        String versionWithoutPatch = pomVersion.substring(0, patchVersionStart);
 
         return versionWithoutPatch;
     }
@@ -80,18 +81,18 @@ public class ConfigurationProvider implements Factory<Config> {
 
     private ConfigurationSource getClasspathSource() {
         return new ClasspathConfigurationSource(
-                    () -> Arrays.asList(Paths.get(
-                            "configuration.yaml"))
-            );
+                () -> Arrays.asList(Paths.get(
+                        "configuration.yaml"))
+        );
     }
 
     private ConfigurationSource getGitConfigSource() {
         return new GitConfigurationSourceBuilder()
-                    .withRepositoryURI(repositoryURI)
-                    .withConfigFilesProvider(
-                            () -> Arrays.asList(Paths.get(
-                                            String.format("%s/%s/configuration.yaml", serviceName(), env)
-                                    ))).build();
+                .withRepositoryURI(repositoryURI)
+                .withConfigFilesProvider(
+                        () -> Arrays.asList(Paths.get(
+                                String.format("%s/%s/configuration.yaml", serviceName(), env)
+                        ))).build();
     }
 
     @Override

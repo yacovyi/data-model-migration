@@ -29,7 +29,7 @@ public class StatusService {
 
     public void produceMessageTokafka(String message) {
         String body = "test";
-        producer.send(new ProducerRecord<>(body,message));
+        producer.send(new ProducerRecord<>(body, message));
         logger.trace(String.format("Message with body: %s was produced", body));
     }
 

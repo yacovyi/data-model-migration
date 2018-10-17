@@ -1,7 +1,5 @@
 package com.ws.ng;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.ws.ng.providers.RestClientFactory;
 import com.ws.ng.resources.Status;
 import org.glassfish.grizzly.http.server.HttpServer;
@@ -9,9 +7,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class StatusTest {

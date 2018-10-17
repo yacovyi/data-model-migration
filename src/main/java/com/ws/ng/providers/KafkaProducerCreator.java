@@ -20,7 +20,7 @@ public class KafkaProducerCreator {
         return props;
     }
 
-    public KafkaProducer<String,String> createProducer() {
+    public KafkaProducer<String, String> createProducer() {
         return new KafkaProducer<>(getProducerProps());
     }
 }

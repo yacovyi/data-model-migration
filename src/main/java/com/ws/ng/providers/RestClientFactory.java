@@ -21,6 +21,7 @@ public class RestClientFactory {
     /**
      * This is the place to add new configurations to the rest client
      * similar to the configurations added to the webserver
+     *
      * @return org.glassfish.jersey.client.ClientConfig
      */
     protected static ClientConfig getClientConfig() {

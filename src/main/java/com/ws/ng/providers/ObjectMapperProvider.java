@@ -25,6 +25,7 @@ public class ObjectMapperProvider implements ContextResolver<ObjectMapper> {
     /**
      * Place to set configurations for the object mapper used to
      * serialize and deserialize objects received and/or sent via rest
+     *
      * @return com.fasterxml.jackson.databind.ObjectMapper
      */
     private static ObjectMapper createDefaultMapper() {

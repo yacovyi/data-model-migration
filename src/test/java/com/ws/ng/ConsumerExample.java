@@ -28,7 +28,7 @@ public class ConsumerExample {
 
         try {
 
-            while(true) {
+            while (true) {
                 ConsumerRecords poll = consumer.poll(1000);
                 poll.records("test").forEach(System.out::println);
             }

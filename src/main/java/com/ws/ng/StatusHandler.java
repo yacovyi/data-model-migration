@@ -4,7 +4,6 @@ import com.ws.ng.configuration.Config;
 import com.ws.ng.resources.Status;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jvnet.hk2.annotations.Service;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
