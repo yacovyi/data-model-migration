@@ -1,13 +1,16 @@
 package com.ws.ng;
 
+import com.ws.ng.configuration.Config;
 import com.ws.ng.configuration.ConfigurationProvider;
 import com.ws.ng.configuration.DependencyBinder;
 import com.ws.ng.providers.ObjectMapperProvider;
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import javax.inject.Singleton;
 import java.net.URI;
 
 public class Main {

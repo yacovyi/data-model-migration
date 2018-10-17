@@ -7,6 +7,7 @@ import org.cfg4j.source.compose.FallbackConfigurationSource;
 import org.cfg4j.source.context.environment.ImmutableEnvironment;
 import org.cfg4j.source.git.GitConfigurationSourceBuilder;
 import org.cfg4j.source.reload.strategy.PeriodicalReloadStrategy;
+import org.glassfish.hk2.api.Factory;
 
 import javax.inject.Singleton;
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Singleton
-public class ConfigurationProvider {
+public class ConfigurationProvider implements Factory<Config> {
     final static String env = System.getProperty("env", "dev");
     final static String branch = System.getProperty("branch", "");
     final static Properties properties = getProperties();
@@ -53,7 +54,7 @@ public class ConfigurationProvider {
         return properties;
     }
 
-    String repositoryURI = "https://github.com/dimagoldin/cfg4j-git-sample-config.git";
+    String repositoryURI = "https://github.com/dimagoldin/cfg4j-git-sample-config1.git";
 
     public ConfigurationProvider() {
 
@@ -93,7 +94,13 @@ public class ConfigurationProvider {
                                     ))).build();
     }
 
-    public Config get() {
+    @Override
+    public Config provide() {
         return configuration;
+    }
+
+    @Override
+    public void dispose(Config instance) {
+
     }
 }

@@ -1,14 +1,21 @@
 package com.ws.ng.configuration;
 
-import com.ws.ng.StatusHandler;
-import org.glassfish.jersey.internal.inject.AbstractBinder;
+
+import com.ws.ng.providers.KafkaProducerCreator;
+import com.ws.ng.StatusService;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
 import javax.inject.Singleton;
 
+/**
+ * Similar to Guice Module.
+ * It holds all bindings that need to be injected.
+ */
 public class DependencyBinder extends AbstractBinder {
     @Override
     protected void configure() {
-        bind(ConfigurationProvider.class).to(ConfigurationProvider.class).in(Singleton.class);
-        bind(StatusHandler.class).to(StatusHandler.class);
+        bindFactory(ConfigurationProvider.class).to(Config.class).in(Singleton.class);
+        bind(KafkaProducerCreator.class).to(KafkaProducerCreator.class).in(Singleton.class);
+        bind(StatusService.class).to(StatusService.class).in(Singleton.class);
     }
 }
