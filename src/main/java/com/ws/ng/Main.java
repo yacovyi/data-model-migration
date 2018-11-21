@@ -1,6 +1,7 @@
 package com.ws.ng;
 
 import com.ws.ng.configuration.DependencyBinder;
+import com.ws.ng.database.migration.InitDB;
 import com.ws.ng.providers.ObjectMapperProvider;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -29,8 +30,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        initDB();
         startServer();
         System.out.println(String.format("Jersey app started with WADL available at %sapplication.wadl", BASE_URI));
         System.out.println(String.format("Endpoint is available at %sstatus", BASE_URI));
+    }
+
+    private static void initDB() {
+        InitDB.createTabelsFromEntities();
     }
 }

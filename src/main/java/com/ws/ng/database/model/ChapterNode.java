@@ -1,6 +1,5 @@
 package com.ws.ng.database.model;
 
-import javax.persistence.Id;
 import java.util.List;
 
 public class ChapterNode {
