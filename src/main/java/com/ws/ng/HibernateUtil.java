@@ -1,5 +1,6 @@
 package com.ws.ng;
 
+import com.ws.ng.configuration.ConfigurationProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
@@ -14,7 +15,7 @@ public class HibernateUtil {
         try {
             Configuration configuration = new Configuration();
 
-            return configuration.configure()
+            return configuration.configure(ConfigurationProvider.getProperties().getProperty("hibernate_filename"))
                     .buildSessionFactory();
         } catch (Exception e) {
             logger.error(e);

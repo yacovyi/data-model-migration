@@ -45,7 +45,7 @@ public class ConfigurationProvider implements Factory<Config> {
         return artifactId;
     }
 
-    private static Properties getProperties() {
+    public static Properties getProperties() {
         final Properties properties = new Properties();
         try {
             properties.load(ConfigurationProvider.class.getClassLoader().getResourceAsStream("application.properties"));

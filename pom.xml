@@ -17,6 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <log4j2.version>2.11.1</log4j2.version>
         <cfg4j.version>4.4.1</cfg4j.version>
+        <hibernate.filename>hibernate-azure.cfg.xml</hibernate.filename>
+
     </properties>
 
     <distributionManagement>
@@ -101,7 +103,11 @@
             <artifactId>disruptor</artifactId>
             <version>3.4.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.7</version>
+        </dependency>
       <!--  hibernate-->
         <dependency>
             <groupId>org.hibernate</groupId>
