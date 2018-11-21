@@ -1,5 +1,8 @@
 package com.ws.ng.database.migration;
 
+import com.ws.ng.StatusHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -11,6 +14,7 @@ import java.io.File;
 import java.util.EnumSet;
 
 public class InitDB {
+    static final Logger logger = LogManager.getLogger(StatusHandler.class.getName());
     public static final String SCRIPT_FILE = "exportScript.sql";
     private static final String configFileName = "hibernate.cfg.xml";
     public static void createTabelsFromEntities(){
@@ -24,11 +28,11 @@ public class InitDB {
 
         SchemaExport export = getSchemaExport();
 
-        System.out.println("Drop Database...");
+        logger.info("Drop Database...");
         // Drop Database
         dropDataBase(export, metadata);
 
-        System.out.println("Create Database...");
+        logger.info("Create Database...");
         // Create tables
         createDataBase(export, metadata);
 
@@ -40,7 +44,7 @@ public class InitDB {
         File outputFile = new File(SCRIPT_FILE);
         String outputFilePath = outputFile.getAbsolutePath();
 
-        System.out.println("Export file: " + outputFilePath);
+        logger.info("Export file: " + outputFilePath);
 
         export.setDelimiter(";");
         export.setOutputFile(outputFilePath);
@@ -71,7 +75,7 @@ public class InitDB {
         //
         export.execute(targetTypes, action, metadata);
 
-        System.out.println("Export OK");
+        logger.info("Export OK");
 
     }
 }
