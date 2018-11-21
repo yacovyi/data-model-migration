@@ -3,6 +3,8 @@ package com.ws.ng;
 import com.ws.ng.database.migration.InitDB;
 import com.ws.ng.database.model.Chapter;
 import com.ws.ng.database.model.Investigation;
+import com.ws.ng.providers.PropertiesProvider;
+import com.ws.ng.providers.SessionFactoryCreator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -21,13 +23,15 @@ public class CreateTablesFromEntitiesTest {
 
 
         Transaction transObj = null;
-        try(Session session = HibernateUtil.getSessionFactory().openSession())
+
+        try(Session session = new SessionFactoryCreator(new PropertiesProvider()).getSessionFactory().openSession())
         {
+            //session.getSessionFactory().getAllClassMetadata()
             //drop all tables and recreate tables
-            InitDB.createTabelsFromEntities();
+            new InitDB(new PropertiesProvider()).createTabelsFromEntities();
 
             //begin transaction
-            transObj = session.beginTransaction();;
+            transObj = session.beginTransaction();
 
             //create investigation
             Investigation investigation ;

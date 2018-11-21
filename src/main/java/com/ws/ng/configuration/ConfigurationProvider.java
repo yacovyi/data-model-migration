@@ -1,5 +1,6 @@
 package com.ws.ng.configuration;
 
+import com.ws.ng.providers.PropertiesProvider;
 import org.cfg4j.provider.ConfigurationProviderBuilder;
 import org.cfg4j.source.ConfigurationSource;
 import org.cfg4j.source.classpath.ClasspathConfigurationSource;
@@ -9,6 +10,7 @@ import org.cfg4j.source.git.GitConfigurationSourceBuilder;
 import org.cfg4j.source.reload.strategy.PeriodicalReloadStrategy;
 import org.glassfish.hk2.api.Factory;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -45,7 +47,7 @@ public class ConfigurationProvider implements Factory<Config> {
         return artifactId;
     }
 
-    public static Properties getProperties() {
+    private static Properties getProperties() {
         final Properties properties = new Properties();
         try {
             properties.load(ConfigurationProvider.class.getClassLoader().getResourceAsStream("application.properties"));

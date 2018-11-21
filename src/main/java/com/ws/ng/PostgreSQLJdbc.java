@@ -51,7 +51,7 @@ public class PostgreSQLJdbc {
 
         try
         {
-            String url = String.format("jdbc:postgresql://%s/%s%s", host, database, ssl ? "?ssl&sslfactory=org.postgresql.ssl.NonValidatingFactory" : "");
+            String url = String.format("jdbc:postgresql://%s/%s%s", host, database, ssl ? "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory" : "");
 
             // set up the connection properties
             Properties properties = new Properties();

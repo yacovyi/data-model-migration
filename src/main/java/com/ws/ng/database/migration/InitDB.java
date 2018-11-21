@@ -1,6 +1,8 @@
 package com.ws.ng.database.migration;
 
 import com.ws.ng.StatusHandler;
+import com.ws.ng.configuration.ConfigurationProvider;
+import com.ws.ng.configuration.ServiceProperties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.boot.Metadata;
@@ -10,18 +12,24 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.util.EnumSet;
 
 public class InitDB {
     static final Logger logger = LogManager.getLogger(StatusHandler.class.getName());
     public static final String SCRIPT_FILE = "exportScript.sql";
-    private static final String configFileName = "hibernate.cfg.xml";
-    public static void createTabelsFromEntities(){
+
+    private ServiceProperties serviceProperties;
+    @Inject
+    public InitDB(ServiceProperties serviceProperties){
+        this.serviceProperties = serviceProperties;
+    }
+    public void createTabelsFromEntities(){
 
         // Create the ServiceRegistry from hibernate-xxx.cfg.xml
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()//
-                .configure(configFileName).build();
+                .configure(serviceProperties.getProperties().getProperty("hibernate_filename")).build();
 
         // Create a metadata sources using the specified service registry.
         Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
@@ -37,7 +45,7 @@ public class InitDB {
         createDataBase(export, metadata);
 
     }
-    public static SchemaExport getSchemaExport() {
+    public SchemaExport getSchemaExport() {
 
         SchemaExport export = new SchemaExport();
         // Script file.
@@ -55,7 +63,7 @@ public class InitDB {
         return export;
     }
 
-    public static void dropDataBase(SchemaExport export, Metadata metadata) {
+    public void dropDataBase(SchemaExport export, Metadata metadata) {
         // TargetType.DATABASE - Execute on Databse
         // TargetType.SCRIPT - Write Script file.
         // TargetType.STDOUT - Write log to Console.
@@ -64,7 +72,7 @@ public class InitDB {
         export.drop(targetTypes, metadata);
     }
 
-    public static void createDataBase(SchemaExport export, Metadata metadata) {
+    public void createDataBase(SchemaExport export, Metadata metadata) {
         // TargetType.DATABASE - Execute on Databse
         // TargetType.SCRIPT - Write Script file.
         // TargetType.STDOUT - Write log to Console.

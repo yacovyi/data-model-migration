@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <log4j2.version>2.11.1</log4j2.version>
         <cfg4j.version>4.4.1</cfg4j.version>
-        <hibernate.filename>hibernate-azure.cfg.xml</hibernate.filename>
+        <hibernate.filename>hibernate.cfg.xml</hibernate.filename>
 
     </properties>
 

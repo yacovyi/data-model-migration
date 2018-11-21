@@ -11,13 +11,14 @@
 		<!-- Database Connection Settings -->
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<!--<property name="hibernate.connection.url">jdbc:postgresql://wsng-postgresql-dev.postgres.database.azure.com/test?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</property>-->
-		<property name="hibernate.connection.url">jdbc:postgresql://wsng-postgresql-dev.postgres.database.azure.com/ws-ng-42?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://wsng-postgresql-dev.postgres.database.azure.com/ws-ng-42</property>
 		<property name="hibernate.connection.username">wsng@wsng-postgresql-dev</property>
 		<property name="hibernate.connection.password">Ws1337ng</property>
-		<property name="hibernate.connection.verifyServerCertificate">false</property>
-		<!--<property name="hibernate.connection.requireSSL"></property>-->
+
+		<property name="hibernate.connection.ssl">true</property>
+
 		<property name="show_sql">true</property>
-		<property name="hbm2ddl.auto">create</property>
+		<!--<property name="hbm2ddl.auto">update</property>-->
 
 		<!-- Specifying Session Context -->
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
