@@ -52,3 +52,14 @@ you do not need to register them manually in Main for them to be recognized
 1. unit-test example
 1. proper documentation
 1. template variables
+
+#liquibase commands
+
+###Generate ChangeLogFile
+`mvn liquibase:generateChangeLog -Dliquibase.outputChangeLogFile=output.xml`
+###Run all liquibase changes
+`mvn liquibase:update`
+###Run Rolleback to tag
+`mvn liquibase:rollback -Dliquibase.rollbackTag=1.0`
+###update to tag
+`mvn liquibase:update -Dliquibase.toTag=1.1`

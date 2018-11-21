@@ -1,0 +1,41 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet id="tag-0.0" author="yacovyi">
+        <tagDatabase tag="0.0" />
+    </changeSet>
+    <changeSet author="dev (generated)" id="create_chapter_table">
+        <createTable tableName="chapter">
+            <column name="chapter_wsid" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="chapter_pkey"/>
+            </column>
+            <column name="chapter_description" type="VARCHAR(255)"/>
+            <column name="chapter_name" type="VARCHAR(255)"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="created_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="updated_by" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="investigation_wsid" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="chapter_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dev (generated)" id="create_investigation_table">
+        <createTable tableName="investigation">
+            <column name="investigation_wsid" type="VARCHAR(255)">
+                <constraints primaryKey="true" primaryKeyName="investigation_pkey"/>
+            </column>
+            <column name="case_wsid" type="VARCHAR(255)"/>
+            <column name="chapternodes" type="UUID"/>
+            <column name="createdby" type="VARCHAR(255)"/>
+            <column name="createdon" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="updatedby" type="VARCHAR(255)"/>
+            <column name="updatedon" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dev (generated)" id="add_foreign_key_constrains">
+        <addForeignKeyConstraint baseColumnNames="investigation_wsid" baseTableName="chapter" constraintName="fklk07unpb06e2ims376gtcspff" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="investigation_wsid" referencedTableName="investigation" validate="true"/>
+    </changeSet>
+    <changeSet id="tag-1.0" author="yacovyi">
+        <tagDatabase tag="1.0" />
+    </changeSet>
+</databaseChangeLog>
