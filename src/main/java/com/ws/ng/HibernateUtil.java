@@ -1,26 +1,23 @@
 package com.ws.ng;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
+    static final Logger logger = LogManager.getLogger(StatusHandler.class.getName());
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure();
 
-            /*return configuration
-                    .buildSessionFactory(new StandardServiceRegistryBuilder()
-                            .applySettings(configuration.getProperties())
-                            .build());  -- does not work while using hibernate.cfg.xml, but works with hibernate.properties*/
-
-            return configuration
+            return configuration.configure()
                     .buildSessionFactory();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e);
             throw new RuntimeException(
                     "There was an error building the factory");
         }

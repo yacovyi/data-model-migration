@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "public.investigation")
+@Table(name = "investigation", schema = "public")
 @TypeDefs({ @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)})
 public class Investigation implements Model {
     @Id

@@ -1,12 +1,16 @@
 package com.ws.ng.database.model;
 
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 @IdClass(ChapterId.class)
-@Table(name = "public.chapter")
+@Table(name = "chapter", schema = "public")
 public class Chapter implements Model {
 
     @Id
@@ -24,12 +28,16 @@ public class Chapter implements Model {
     @Column(name = "chapter_description")
     private String chapterDescription;
 
-    @Column(name = "created_on")
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_on" )
     private Date createdOn;
 
     @Column(name = "created_by")
     private String createdBy;
 
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_on")
     private Date updatedOn;
 
