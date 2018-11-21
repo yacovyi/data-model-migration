@@ -63,3 +63,10 @@ you do not need to register them manually in Main for them to be recognized
 `mvn liquibase:rollback -Dliquibase.rollbackTag=1.0`
 ###update to tag
 `mvn liquibase:update -Dliquibase.toTag=1.1`
+
+###generate sql to rollback 1 version backwards  
+`mvn liquibase:rollbackSQL -Dliquibase.rollbackCount=2` 
+
+###generate sql to rollback to specific tag  
+`mvn liquibase:rollbackSQL -Dliquibase.rollbackTag=1.0
+`

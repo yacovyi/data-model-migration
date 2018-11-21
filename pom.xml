@@ -201,19 +201,21 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.6.2</version>
                 <configuration>
+                    <referenceUrl>jdbc:postgresql://wsng-postgresql-dev.postgres.database.azure.com/ws-ng-42?ssl=true</referenceUrl>
+                    <referenceDriver>org.postgresql.Driver</referenceDriver>
+                    <referencePassword>Ws1337ng</referencePassword>
+                    <referenceUsername>wsng@wsng-postgresql-dev</referenceUsername>
                     <propertyFile>liquibase/liquibase.properties</propertyFile>
                     <changeLogFile>liquibase/db-changelog-master.xml</changeLogFile>
                 </configuration>
-                <!--  I personally prefer run  it manually
-                <executions>
+               <!-- <executions>
                   <execution>
                     <phase>process-resources</phase>
                     <goals>
-                      <goal>update</goal>
+                      <goal>diff</goal>
                     </goals>
                   </execution>
-                </executions>
-                -->
+                </executions>-->
             </plugin>
         </plugins>
         <resources>
