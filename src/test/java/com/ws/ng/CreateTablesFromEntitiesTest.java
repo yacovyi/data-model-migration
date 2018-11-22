@@ -18,10 +18,17 @@ public class CreateTablesFromEntitiesTest {
     static final Logger logger = LogManager.getLogger(StatusHandler.class.getName());
 
     @Test
-    public void createTabelsFromEntities(){
+    public void createTabelsFromEntities() throws ClassNotFoundException {
 
 
-
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            throw new ClassNotFoundException("PostgreSQL JDBC driver NOT detected in library path.", e);
+        }
         Transaction transObj = null;
 
         try(Session session = new SessionFactoryCreator(new PropertiesProvider()).getSessionFactory().openSession())
