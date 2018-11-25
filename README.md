@@ -69,4 +69,8 @@ you do not need to register them manually in Main for them to be recognized
 
 ###generate sql to rollback to specific tag  
 `mvn liquibase:rollbackSQL -Dliquibase.rollbackTag=1.0
+
+## docker image
+
+
 `

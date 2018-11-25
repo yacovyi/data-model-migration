@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -r IMAGE_NAME="artifactory.rnd-hub.com:5001/wsng/webserver_template"
+declare -r IMAGE_NAME="artifactory.rnd-hub.com:5001/wsng/webserver_data_init"
 declare -r IMAGE_TAG="latest"
 declare -r APP_PORT="8123"
 
